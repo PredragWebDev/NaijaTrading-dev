@@ -8,12 +8,17 @@ export const Login = () => {
 
     const [error, setError] = useState("");
 
+    const createAccount = (e) => {
+        e.preventDefault()
+        navigate('/signup')
+    }
+
     const submit = async (e) => {
         e.preventDefault();
         const data = new FormData(e.target);
             axios({
                 method: "post",
-                url: 'http://localhost:5000/login',
+                url: `${process.env.REACT_APP_SERVER_URL}/login`,
                 data: data,
                 headers: { "Content-Type": "multipart/form-data" },
               })
@@ -32,7 +37,7 @@ export const Login = () => {
                 
               }).catch((error) => {
                 if (error.response) {
-                    alert("Server Error!!!")
+                    alert(error);
                     console.log("error~~~~~~~~~")
                     console.log(error.response)
                     console.log(error.response.status)
@@ -46,14 +51,14 @@ export const Login = () => {
             <div className="logincontainer">
                 <div>
                     <div className="logo">
-                        <img src="img/logo.PNG" alt="" className="nav-logo"/>
+                        <img src="img/logo.png" alt="" className="nav-logo"/>
                         <h1>Trade-Ed</h1>
                     </div>
                     <div className="title">
                         <p>Log In</p>
                         <div>
                             or
-                            <a href = "/signup" > create an account</a>
+                            <a href="#" onClick={createAccount} > create an account</a>
                         </div>
                     </div>
                 </div>

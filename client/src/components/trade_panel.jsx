@@ -254,7 +254,7 @@ export const Trade_Panel = (props) => {
     const get_Price = () => {
         axios({
             method: "post",
-            url: 'http://localhost:5000/get_coin_price',
+            url: `${process.env.REACT_APP_SERVER_URL}/get_coin_price`,
         })
         .then((response) => {
             setCryptoPrice24Hago(response.data['priceAgo'])
@@ -293,7 +293,7 @@ export const Trade_Panel = (props) => {
         setLoading(true)
         axios({
             method:'post',
-            url: 'http://localhost:5000/portfolio',
+            url: `${process.env.REACT_APP_SERVER_URL}/portfolio`,
             data:{"username":username, "mode":mode},
         })
         .then((response) => {

@@ -19,7 +19,7 @@ export const Signup = () => {
             const data = new FormData(e.target);
             axios({
                 method: "post",
-                url: 'http://localhost:5000/register',
+                url: `${process.env.REACT_APP_SERVER_URL}/register`,
                 data: data,
                 headers: { "Content-Type": "multipart/form-data" },
               })
@@ -64,8 +64,8 @@ export const Signup = () => {
             <div className="signupcontainer">
                 <div>
                     <div className="logo">
-                        <img src="./img/logo.PNG" alt="" className="nav-logo"/>
-                        <h1>TrandingPlace</h1>
+                        <img src="./img/logo.png" alt="" className="nav-logo"/>
+                        <h1>Trade-Ed</h1>
                     </div>
                     <div className="title">
                         <p>Register</p>

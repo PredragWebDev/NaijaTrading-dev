@@ -70,7 +70,7 @@ export const Trade_child = (props) => {
         console.log('new_qty :>> ', new_qty);
         axios({
             method: "post",
-            url: 'http://localhost:5000/trade',
+            url: `${process.env.REACT_APP_SERVER_URL}/trade`,
             data:{"username":props.username, "action":action, "qty":new_qty, "symbol":props.item.Crypto_Symbol, "mode":props.mode},
           })
           .then((response) => {
@@ -93,7 +93,6 @@ export const Trade_child = (props) => {
               }
         })
     }
-  
     
     return (
         <div className="trade-panel">

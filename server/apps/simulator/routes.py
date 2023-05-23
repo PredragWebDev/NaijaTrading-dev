@@ -101,7 +101,7 @@ def chartDataUpdate(username, mode):
     db.session.add(values)
     db.session.commit()
 
-@blueprint.route('get_coin_price', methods=['GET', 'POST'])
+@blueprint.route('/get_coin_price', methods=['GET', 'POST'])
 def get_price():
     
     # price before 24 Hs

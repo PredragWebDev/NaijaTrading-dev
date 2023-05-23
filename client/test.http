@@ -1,0 +1,35 @@
+GET http://127.0.0.1:5000/ HTTP/1.1
+content-type: application/json
+
+{
+    "name": "sample",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+###
+POST http://127.0.0.1:5000/api/login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "sample",
+    "password": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+
+###
+GET https://trade-ed.io HTTP/1.1
+content-type: application/json
+
+{
+    "username": "sample",
+    "password": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+###
+POST https://trade-ed.io/backend/api/login HTTP/1.1
+content-type: application/json
+
+{
+    "name": "sample",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}

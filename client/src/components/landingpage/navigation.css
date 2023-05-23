@@ -19,6 +19,13 @@
     background:black;
     color:white;
 }
+.hiden_button {
+}
+@media (max-width:440px) {
+    .hiden_button {
+        display:none;
+    }
+}
 .nav-bar {
     padding-left:30px !important;
 }
@@ -26,7 +33,7 @@
 @media (max-width:900px) {
     .nav-bar {
         padding-left:0px !important;
-    }   
+    }
 }
 
 .nav-logo {
@@ -35,11 +42,12 @@
 }
 
 .nav-bar h1 {
+    align-items:center;
+    color:black;
+    display:flex;
     font-size:25px;
     margin:0;
     padding:10px;
-    color:black;
-    display:flex;
 }
 
 .nav-bar h2 {

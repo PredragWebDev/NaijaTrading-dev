@@ -54,28 +54,31 @@ def get_UserData():
 
     return {"state":True, "cash":user.cash, "acc_balance":user.account_balance}
 
-@blueprint.route('/login', methods=['GET', 'POST'])
+@blueprint.route('/login', methods=['POST'])
 def login():
 
-        # read form data
-        username = request.form['username']
-        password = request.form['password']
+    
+    # read form data
+    username = request.form['username']
+    password = request.form['password']
+    
+    print("username", username)
+    
+    # Locate user
+    user = Users.query.filter_by(username=username).first()
 
-        # Locate user
-        user = Users.query.filter_by(username=username).first()
+    if user and not user.account_status:
+        # Email not confirmed
+        return {"state":False, "smg":'Inactive account - Please confirm email address'}
 
-        if user and not user.account_status:
-            # Email not confirmed
-            return {"state":False, "smg":'Inactive account - Please confirm email address'}
+    # Check the password
+    if user and verify_pass(password, user.password):
 
-        # Check the password
-        if user and verify_pass(password, user.password):
+        login_user(user)
+        return {"state":True, "username":user.username, "cash":user.cash, "acc_balance":user.account_balance}
 
-            login_user(user)
-            return {"state":True, "username":user.username, "cash":user.cash, "acc_balance":user.account_balance}
-
-        # Something (user or pass) is not ok
-        return {"state":False, "smg":'Wrong user or password'} 
+    # Something (user or pass) is not ok
+    return {"state":False, "smg":'Wrong user or password'} 
 
 @blueprint.route('/register', methods=['GET','POST'])
 def register():

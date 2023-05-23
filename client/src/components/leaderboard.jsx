@@ -51,7 +51,7 @@ export default function StickyHeadTable(props) {
         setLoading(true)
         axios({
             method: "post",
-            url: 'http://localhost:5000/game_userdata',
+            url: `${process.env.REACT_APP_SERVER_URL}/game_userdata`,
             data:{"username":props.username, "mode":props.mode},
         })
         .then((response) => {
@@ -77,7 +77,7 @@ export default function StickyHeadTable(props) {
     const register_user = () => {
         axios({
             method: "post",
-            url: 'http://localhost:5000/game_user_register',
+            url: `${process.env.REACT_APP_SERVER_URL}/game_user_register`,
             data:{"username":props.username},
         })
         .then((response) => {
