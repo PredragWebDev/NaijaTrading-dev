@@ -1,0 +1,10 @@
+.footer {
+    width:100%;
+    background-color: #323a56 !important;
+    text-align: left!important;
+    padding-left:30px;
+}
+
+.footer p {
+    width:100%;
+}

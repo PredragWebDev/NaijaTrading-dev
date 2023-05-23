@@ -1,0 +1,51 @@
+.getstared-btn, .login-btn {
+    background: green ;
+    border-radius: 18px;
+    color: black ;
+    font-size: 14px;
+    font-weight: bold ;
+    letter-spacing: 2px;
+    margin-left: 10px;
+    margin-right:10px;
+    padding: 10px;
+    text-align: center ; 
+}
+
+#login_btn {
+    background: green ;
+    color: white ;
+}
+#get_started_btn_onBoard {
+    background:black;
+    color:white;
+}
+.nav-bar {
+    padding-left:30px !important;
+}
+
+@media (max-width:900px) {
+    .nav-bar {
+        padding-left:0px !important;
+    }   
+}
+
+.nav-logo {
+    width:35px;
+    height:35px;    
+}
+
+.nav-bar h1 {
+    font-size:25px;
+    margin:0;
+    padding:10px;
+    color:black;
+    display:flex;
+}
+
+.nav-bar h2 {
+    font-size:25px;
+    margin:0;
+    padding:10px;
+    color:green;  
+}
+

@@ -1,0 +1,82 @@
+.trade {
+    padding:12px;
+}
+
+.trade .mainboard {
+    display:flex;
+    padding-bottom:50px;
+    padding-left:100px;
+    padding-right:100px;
+    padding-top:50px;
+
+}
+
+@media (max-width:900px) {
+    .trade {
+        padding:0px;
+    }
+    .trade .mainboard {
+        display:flex;
+        padding-bottom:25px;
+        padding-left:50px;
+        padding-right:50px;
+        padding-top:25px;
+    
+    }   
+
+    
+.trade .mainboard .txt .text1 {
+    font-family: "PlayfairDisplay",serif!important;
+    color: #264192;
+    font-size: 20px !important;
+    line-height: 30px !important;
+    letter-spacing: .0073529412em!important;
+    font-weight: 400;
+    padding-bottom: 8px!important;
+    align-items: center ;
+}
+
+.trade .mainboard .txt .text2 {
+    font-family: "SourceSansPro",sans-serif;
+    line-height: 25px !important;
+    color: rgba(0,0,0,.87);
+    font-size:15px !important;
+    align-items: center ;    
+}
+}
+
+.trade .mainboard .txt {
+    display:grid;
+    padding:12px;
+    width:50%;
+    
+}
+
+.trade .mainboard .txt .text1 {
+    font-family: "PlayfairDisplay",serif!important;
+    color: #264192;
+    font-size: 35px;
+    letter-spacing: .0073529412em!important;
+    font-weight: 400;
+    padding-bottom: 8px!important;
+    align-items: center ;
+}
+
+.trade .mainboard .txt .text2 {
+    font-family: "SourceSansPro",sans-serif;
+    color: rgba(0,0,0,.87);
+    font-size:20px;
+    align-items: center ;    
+}
+
+.trade .mainboard .img {
+    padding:12px;
+    text-align:center;
+    width:100%
+
+}
+
+.trade .mainboard .img .image{
+    width:450px;
+    
+}

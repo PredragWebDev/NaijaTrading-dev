@@ -1,0 +1,111 @@
+
+.leaderboardtableSetting-left {
+    border-bottom:1px solid #616161 !important;
+    color:white!important;
+    /* display:flex; */
+    font-size:15px!important;
+    justify-content:center;
+    padding-top:10px !important;
+    padding-bottom:10px !important;
+    padding-left:50px !important;
+    padding-right:50px !important;
+    text-align:left !important;
+}
+
+.leaderboardtableSetting-right {
+    border-bottom:1px solid #616161 !important;
+    color:white!important;
+    /* display:flex; */
+    font-size:15px!important;
+    justify-content:center;
+    padding-top:10px !important;
+    padding-bottom:10px !important;
+    padding-left:50px !important;
+    padding-right:50px !important;
+    text-align:right !important;
+}
+
+.leaderboard-label {
+    color:white;
+    margin-top:20px;
+    font-size:15px;
+
+}
+.leaderboardtable-near-hearder {
+    height:50px;
+    align-items:center;
+    border-bottom:2px solid white !important;
+    color:white;
+    display:flex !important;
+    fornt-size:20px !important;
+    justify-content:center;
+    padding-left:20px !important;
+    padding-top:5px !important;
+    padding-bottom:5px !important;
+    text-align:left;
+}
+
+.tableCell-right {
+    border-bottom:1px solid #616161 !important;
+    color:white!important;
+    font-size:15px!important;
+    justify-content:center;
+    padding-top:0px !important;
+    padding-bottom:0px !important;
+    padding-left:50px !important;
+    padding-right:50px !important;
+    text-align:right !important;
+}
+
+.tableCell-left {
+    border-bottom:1px solid #616161 !important;
+    color:white!important;
+    /* display:flex; */
+    font-size:15px!important;
+    justify-content:center;
+    padding-top:0px !important;
+    padding-bottom:0px !important;
+    padding-left:50px !important;
+    padding-right:50px !important;
+    text-align:left !important;
+}
+
+.tableRow:hover {
+    background-color: #616161;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+
+.tablepagination-fontsize {
+    font-size:15px;
+    color:white;
+}
+
+.trade-button {
+    width: 160px;
+    height: 48px;
+    align-items:center;
+    background-color:#c5dcff;
+    border:1px solid white;
+    border-radius:10px;
+    color:black;
+    display:flex;
+    justify-content:center;
+}
+@media (max-width:900px) {
+    .trade-button {
+        width:100%;
+        align-items:center;
+        background-color:#c5dcff !important;
+        bottom:0;
+        border: 1px solid white;
+        border-radius: 10px;
+        color:black;
+        display:flex;
+        height:48px;
+        justify-content:center;
+        left:0;
+        position:fixed;
+    }
+}

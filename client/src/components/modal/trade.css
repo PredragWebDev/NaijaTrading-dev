@@ -1,0 +1,117 @@
+.search-bar {
+    width:100%;
+    background:#313131;
+    color:white;
+    
+    padding:20px;
+    padding-top:0px;
+}
+
+.close-btn {
+    display:flex;
+    justify-content:flex-end;    
+}
+.input-wrap {
+    width: 100%;
+    height: 56px;
+    align-items: center;
+    background: #313131;
+    border:1px solid;
+    border-radius: 0.8rem;
+    border-color:white;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem 0 1rem;
+}
+
+.input-wrap i {
+    font-size: 1.5rem;
+    color: white;
+  }
+  
+#symbol-search {
+    width: 100%;
+    height: 100%;
+    font-size: 1.8rem;
+    color: white;
+    padding: 0 0 0 1rem;
+    background: #313131;
+    border: none;
+    outline: none;
+}
+
+.search-component {
+    width:100%;
+    display:flex;
+    
+}
+
+.search-form {
+    text-align:left;
+    background:#313131;
+}
+
+.symbol-search-bar {
+    max-width:1048px;
+    justify-content:start;
+}
+
+.symbol span {
+    margin-bottom:5px;
+}
+
+.trade-btn {
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.trade-panel {
+    max-width:60rem;
+    height:90%;
+    background:#313131;
+    color:white;
+    margin-right:auto;
+    margin-left:auto;
+    overflow:auto;
+    padding:25px;
+}
+
+.trade-child-crypto-description-primary {
+    font-size:40px !important;
+    text-transform:uppercase;
+}
+.trade-child-crypto-description-secondary {
+    font-size:20px !important;
+    color:white;
+}
+.trade-child-crypto-avatar {
+    width:80px !important;
+    height:80px !important;
+    margin-right:20px !important;
+}
+@media (max-width:900px) {
+    .trade-child-crypto-description-primary {
+        font-size:20px !important;
+        text-transform:uppercase;
+    }   
+    .trade-child-crypto-avatar {
+        width:60px !important;
+        height:60px !important;
+        margin-right:0px !important;
+    }
+
+}
+.search-component input {
+    color: white;
+    font-size: 20px;
+}
+
+.search-component svg {
+    display: none;
+}
+
+.search-component .MuiInputBase-root::before {
+    display: none
+}

@@ -1,0 +1,76 @@
+
+.cryptomainboard {
+    background-color:green;
+    margin-top:2px !important;
+    padding:100px;
+}
+
+.stock-txt {
+    color: #e7fb04;
+    /* caret-color: #e7fb04; */
+    font-family:"SourceSansPro",sans-serif!important;
+    font-size:54px!important;
+    letter-spacing: 2px;
+    font-weight: 900!important;
+    margin-bottom:50px;
+    font-family: sans-serif!important;
+}
+
+.trusted-txt {
+    color:white;
+    font-size: 40px!important;
+    line-height:60px;
+    font-family: "PlayfairDisplay",serif!important;
+    letter-spacing: .009375em!important;
+    font-weight: 500!important;
+}
+
+.investopedia-txt {
+    color:white;
+    font-size: 20px!important;
+    font-family: "SourceSansPro",sans-serif;
+    line-height: 60px;
+
+}
+
+.com-img {
+    width:100%;
+    margin-bottom:20px;
+}
+
+
+@media (max-width:900px) {
+    .cryptomainboard {
+        background-color:green;
+        margin-top:2px !important;
+        padding:50px;
+    }   
+
+    .stock-txt {
+        color: #e7fb04;
+        font-family:"SourceSansPro",sans-serif!important;
+        font-size:30px!important;
+        letter-spacing: 2px;
+        font-weight: 900!important;
+        margin-bottom:50px;
+        font-family: sans-serif!important;
+    }   
+
+    .trusted-txt {
+        color:white;
+        font-size: 20px!important;
+        line-height:30px !important;
+        font-family: "PlayfairDisplay",serif!important;
+        letter-spacing: .009375em!important;
+        font-weight: 500!important;
+    }
+
+    .investopedia-txt {
+        color:white;
+        font-size: 15px!important;
+        font-family: "SourceSansPro",sans-serif;
+        line-height: 1;
+    
+    }
+
+}
