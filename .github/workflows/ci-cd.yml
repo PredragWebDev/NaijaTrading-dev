@@ -20,14 +20,9 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y python3-pip nodejs npm
         sudo npm install -g yarn
-        - name: Install Node.js
-          run: |
-            curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-            sudo apt-get install -y nodejs
-
-        - name: Install PM2
-          run: |
-            sudo npm install pm2 -g
+        curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+        sudo apt-get install -y nodejs
+        sudo npm install pm2 -g
     - name: Build app
       run: |
 
