@@ -15,15 +15,14 @@ jobs:
 
     - name: Install dependencies
       run: |
-        sudo apt-get update
-        sudo apt-get install -y python3-pip nodejs npm
-        sudo npm install -g yarn
+        sudo npm install
         pip3 install -r requirements.txt
 
     - name: Build app
       run: |
-        yarn install
-        yarn build
+        npm install
+        npm run build
+
 
     - name: Deploy to server
       uses: appleboy/ssh-action@master
@@ -35,4 +34,4 @@ jobs:
           cd /var/www/html
           rm -rf *
           cp -r $GITHUB_WORKSPACE/build/* .
-          systemctl restart apache2
+          systemctl restart nginx
