@@ -32,6 +32,7 @@ jobs:
         password: ${{ secrets.SERVER_PASSWORD }}
         script: |
           cd /root/NaijaTrading-dev/client
+          git pull
           npm install
           npm run build
           cd /root/NaijaTrading-dev/server
