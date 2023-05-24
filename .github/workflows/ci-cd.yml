@@ -29,7 +29,6 @@ jobs:
         password: ${{ secrets.SERVER_PASSWORD }}
         script: |
           cd /root/NaijaTrading-dev/client
-          nvm use 16
           npm install
           npm run build
           cp -r /root/NaijaTrading-dev/client/build/* /var/www/html/react/
