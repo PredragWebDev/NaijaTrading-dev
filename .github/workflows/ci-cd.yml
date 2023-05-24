@@ -20,9 +20,9 @@ jobs:
 
     - name: Build app
       run: |
+        cd /root/NaijaTrading-dev/client
         npm install
         npm run build
-
 
     - name: Deploy to server
       uses: appleboy/ssh-action@master
@@ -31,7 +31,8 @@ jobs:
         username: root
         password: ${{ secrets.SERVER_PASSWORD }}
         script: |
-          cd /var/www/html
-          rm -rf *
-          cp -r $GITHUB_WORKSPACE/build/* .
+          cd /root/NaijaTrading-dev/server
+          pm2 delete all
+          pm2 start ecosystem.config.js
+          cp -r /root/NaijaTrading-dev/client/build/* /var/www/html/react/
           systemctl restart nginx
