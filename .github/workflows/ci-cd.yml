@@ -20,8 +20,6 @@ jobs:
  
     - name: Build app
       run: |
-        yarn install
-        yarn build
          
     - name: Deploy to server
       uses: appleboy/ssh-action@master
