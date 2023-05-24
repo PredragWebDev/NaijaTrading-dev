@@ -17,10 +17,14 @@ jobs:
 
     - name: Install dependencies
       run: |
- 
+        sudo apt-get update
+        sudo apt-get install -y python3-pip nodejs npm
+        sudo npm install -g yarn pm2
+        pip3 install -r requirements.txt
     - name: Build app
       run: |
-         
+        yarn install
+        yarn build
     - name: Deploy to server
       uses: appleboy/ssh-action@master
       with:
@@ -28,13 +32,10 @@ jobs:
         username: root
         password: ${{ secrets.SERVER_PASSWORD }}
         script: |
-          cd /root/NaijaTrading-dev/client
-          sudo npm install
-          sudo npm run build
           cd /root/NaijaTrading-dev/server
-          sudo pm2 start ecosystem.config.js
+          pm2 start ecosystem.config.js
           cd /var/www/html
           rm -rf *
-          cp -r /root/NaijaTrading-dev/client/build/* .
+          cp -r $GITHUB_WORKSPACE/build/* .
           systemctl restart nginx
           
