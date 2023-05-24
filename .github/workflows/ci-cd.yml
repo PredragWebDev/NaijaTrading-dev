@@ -28,7 +28,6 @@ jobs:
         username: root
         password: ${{ secrets.SERVER_PASSWORD }}
         script: |
-          cd /root/NaijaTrading-dev/client
           npm install
           npm install pm2 -g
           npm run build
