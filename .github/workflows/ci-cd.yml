@@ -17,13 +17,11 @@ jobs:
 
     - name: Install dependencies
       run: |
-        npm install
-        npm install pm2 -g
-        pip install -r requirements.txt
  
     - name: Build app
       run: |
-        npm run build
+        yarn install
+        yarn build
          
     - name: Deploy to server
       uses: appleboy/ssh-action@master
@@ -32,8 +30,11 @@ jobs:
         username: root
         password: ${{ secrets.SERVER_PASSWORD }}
         script: |
+          cd /root/NaijaTrading-dev/client
+          sudo npm install
+          sudo npm run build
           cd /root/NaijaTrading-dev/server
-          pm2 start ecosystem.config.js
+          sudo pm2 start ecosystem.config.js
           cd /var/www/html
           rm -rf *
           cp -r /root/NaijaTrading-dev/client/build/* .
