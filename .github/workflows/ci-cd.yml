@@ -15,15 +15,10 @@ jobs:
 
     - name: Install dependencies
       run: |
-        nvm use 16
-        npm install
-        pip install -r requirements.txt
-
+ 
     - name: Build app
       run: |
-        cd /root/NaijaTrading-dev/client
-        npm run build
-
+ 
     - name: Deploy to server
       uses: appleboy/ssh-action@master
       with:
@@ -31,6 +26,11 @@ jobs:
         username: root
         password: ${{ secrets.SERVER_PASSWORD }}
         script: |
+          nvm use 16
+          npm install
+          pip install -r requirements.txt
+          cd /root/NaijaTrading-dev/client
+          npm run build
           cd /root/NaijaTrading-dev/server
           pm2 delete all
           pm2 start ecosystem.config.js
