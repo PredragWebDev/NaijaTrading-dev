@@ -32,10 +32,10 @@ jobs:
         password: ${{ secrets.SERVER_PASSWORD }}
         script: |
           npm install pm2 -g
-          cd $GITHUB_WORKSPACE/client
+          cd $GITHUB_WORKSPACE/NaijaTrading-dev/client
           yarn install 
           yarn build
-          cd $GITHUB_WORKSPACE/server
+          cd $GITHUB_WORKSPACE/NaijaTrading-dev/server
           pip3 install -r requirements.txt
           pm2 start ecosystem.config.js
           cd /var/www/html/react
