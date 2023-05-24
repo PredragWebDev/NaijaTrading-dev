@@ -20,7 +20,6 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y python3-pip nodejs npm
         sudo npm install -g yarn
-        sudo npm install pm2 -g
         pip3 install -r requirements.txt
     - name: Build app
       run: |
@@ -33,6 +32,7 @@ jobs:
         username: root
         password: ${{ secrets.SERVER_PASSWORD }}
         script: |
+          npm install pm2 -g
           cd /root/NaijaTrading-dev/server
           pm2 start ecosystem.config.js
           cd /var/www/html
