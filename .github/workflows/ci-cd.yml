@@ -6,30 +6,33 @@ on:
       - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: '14.x'
-
     - name: Install dependencies
-      run: npm install
-
-    - name: Run tests
-      run: npm test
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y python3-pip nodejs npm
+        sudo npm install -g yarn
+        pip3 install -r requirements.txt
 
     - name: Build app
-      run: npm run build
+      run: |
+        yarn install
+        yarn build
 
-    - name: Deploy to production
-      if: github.ref == 'refs/heads/main'
-      uses: my-actions/deploy-to-production@v1
+    - name: Deploy to server
+      uses: appleboy/ssh-action@master
       with:
-        environment: production
-        api-key: ${{ secrets.API_KEY }}
+        host: 65.108.20.32
+        username: root
+        password: ${{ secrets.SERVER_PASSWORD }}
+        script: |
+          cd /var/www/html
+          rm -rf *
+          cp -r $GITHUB_WORKSPACE/build/* .
+          systemctl restart apache2
