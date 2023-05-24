@@ -29,12 +29,11 @@ jobs:
         password: ${{ secrets.SERVER_PASSWORD }}
         script: |
           cd /root/NaijaTrading-dev/client
-          nvm use 16
           npm install
           npm run build
           cd /root/NaijaTrading-dev/server
           pip install -r requirements.txt
-          flask run
+          pm2 start ecosystem.config.js
           cp -r /root/NaijaTrading-dev/client/build/* /var/www/html/react/
           systemctl restart nginx
           
