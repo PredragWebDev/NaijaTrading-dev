@@ -20,11 +20,10 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y python3-pip nodejs npm
         sudo npm install -g yarn
-        
+        sudo npm install pm2 -g
     - name: Build app
       run: |
-        yarn install
-        yarn build
+
     - name: Deploy to server
       uses: appleboy/ssh-action@master
       with:
@@ -32,7 +31,9 @@ jobs:
         username: root
         password: ${{ secrets.SERVER_PASSWORD }}
         script: |
-          npm install pm2 -g
+          cd /root/NaijaTrading-dev/client
+          yarn install 
+          yarn build
           cd /root/NaijaTrading-dev/server
           pip3 install -r requirements.txt
           pm2 start ecosystem.config.js
