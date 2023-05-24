@@ -28,12 +28,12 @@ jobs:
         username: root
         password: ${{ secrets.SERVER_PASSWORD }}
         script: |
+          cd /root/NaijaTrading-dev/client
           nvm use 16
           npm install
-          pip install -r requirements.txt
-          cd /root/NaijaTrading-dev/client
           npm run build
           cd /root/NaijaTrading-dev/server
+          pip install -r requirements.txt
           pm2 delete all
           pm2 start ecosystem.config.js
           cp -r /root/NaijaTrading-dev/client/build/* /var/www/html/react/
