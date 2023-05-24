@@ -19,7 +19,8 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y python3-pip nodejs npm
-        sudo npm install -g yarn pm2
+        sudo npm install -g yarn
+        sudo npm install pm2 -g
         pip3 install -r requirements.txt
     - name: Build app
       run: |
