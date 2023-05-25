@@ -28,9 +28,7 @@ jobs:
         
     - name: Build app
       run: |
-        cd client
-        npx browserslist@latest --update-db
-        npm run build
+
     - name: Deploy to server
       uses: appleboy/ssh-action@master
       with:
