@@ -37,7 +37,9 @@ jobs:
         host: 65.108.20.32
         username: root
         password: ${{ secrets.SERVER_PASSWORD }}
-        script: |
+        run: |
+          cd client
+          npm run build
           pm2 delete all
           pm2 start server/application.py -- naijatrading
           cp -r /root/NaijaTrading-dev/client/build/* /var/www/html/react/
