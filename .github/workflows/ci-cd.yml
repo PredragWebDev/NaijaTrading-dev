@@ -38,8 +38,8 @@ jobs:
         run: |
           cd client
           npm run build
-          pm2 delete all
-          pm2 start server/
           cp -r /root/NaijaTrading-dev/client/build/* /var/www/html/react/
+          pm2 delete all
+          pm2 start server/ecosystem.config.js
           systemctl restart nginx
           
