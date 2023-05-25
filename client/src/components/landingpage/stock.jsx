@@ -1,23 +1,23 @@
 import "./stock.css";
 import "./navigation.css";
-import { Container, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 //import { red, green, blue } from '@mui/material/colors';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: "green",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
+// const Item = styled(Paper)(({ theme }) => ({
+//   backgroundColor: "green",
+//   ...theme.typography.body2,
+//   padding: theme.spacing(1),
+//   textAlign: 'center',
+//   color: theme.palette.text.secondary,
+// }));
 
 export const Stock = (props) => {
-  const theme = useTheme();
-  const matches = useMediaQuery('(padding:10px)');
+  // const theme = useTheme();
+  // const matches = useMediaQuery('(padding:10px)');
   return (
     <Grid container spacing={2} className="cryptomainboard">
       <Grid container justifyContent={"center"} alignItems={"center"}>

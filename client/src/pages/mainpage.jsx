@@ -8,15 +8,15 @@ import { Trade_Panel } from '../components/trade_panel';
 import {styled} from '@mui/material';
 import Paper from '@mui/material/Paper';
 import './index.css';
-import { Box, Grid, Typography } from '@mui/material';
+// import { Box, Grid, Typography } from '@mui/material';
 
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#212121',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: 'white',
-  }));
+// const Item = styled(Paper)(({ theme }) => ({
+//     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#212121',
+//     ...theme.typography.body2,
+//     padding: theme.spacing(1),
+//     textAlign: 'center',
+//     color: 'white',
+//   }));
 
 export const MainPage = () => {
 

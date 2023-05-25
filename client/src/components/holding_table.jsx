@@ -15,7 +15,6 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { Trade_child } from './modal/trade_child';
-import { Trade } from './modal/trade';
 import "./index.css";
 
 export default function StickyHeadTable(props) {

@@ -5,18 +5,18 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
-import TablePagination from '@mui/material/TablePagination';
+// import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
+// import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+// import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import { useState } from 'react';
-import Modal from '@mui/material/Modal';
+// import Modal from '@mui/material/Modal';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 import RemoveIcon from '@mui/icons-material/Remove';
-import { Trade_child } from './modal/trade_child';
+// import { Trade_child } from './modal/trade_child';
 import axios from 'axios';
 import "./index.css";
 
@@ -38,14 +38,14 @@ export default function StickyHeadTable(props) {
         }
     ];
 
-    const [rows, setRows] = useState([
-        {
-        rank: "1",
-        user: "",
-        account_value: 0
-        },
+    // const [rows, setRows] = useState([
+    //     {
+    //     rank: "1",
+    //     user: "",
+    //     account_value: 0
+    //     },
 
-    ])
+    // ])
 
     const get_user_data = () => {
         setLoading(true)

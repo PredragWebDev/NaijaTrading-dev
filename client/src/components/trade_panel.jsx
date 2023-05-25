@@ -14,15 +14,15 @@ import { useState, useEffect, useRef } from "react";
 import initialData from "../data/data.json";
 import Holding_table from './holding_table';
 import Chart from 'react-apexcharts';
-import {makeStyles} from '@mui/styles';
+// import {makeStyles} from '@mui/styles';
 import "./index.css";
 
-function MyButton(props) {
-    const buttonstyle = {
-        width:"300px",
-        height:"40px"
-    }
-}
+// function MyButton(props) {
+//     const buttonstyle = {
+//         width:"300px",
+//         height:"40px"
+//     }
+// }
 export const Trade_Panel = (props) => {
 
     const username = props.username
@@ -77,7 +77,7 @@ export const Trade_Panel = (props) => {
         let tempChartY = [], tempChartX = []
         let temp = get_YMD(chartDates[0])
 
-        let tempData = chartData[0], tempCount = 0
+        let tempData = chartData[0]
         let tempIndex = 0
         let tempDate
         if (chartDates.length > 1) {
@@ -235,7 +235,7 @@ export const Trade_Panel = (props) => {
             tempX = tempChartX;
             tempY = tempChartY;
         } else {
-            for (var i = 0 ; i< 7; i++) {            
+            for (i = 0 ; i< 7; i++) {            
                 if (tempChartX[tempChartX.length-7+i] !== undefined) {
                     tempX.push(tempChartX[tempChartX.length-7+i]);
                     tempY.push(tempChartY[tempChartY.length-7+i]);
