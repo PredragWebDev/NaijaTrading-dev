@@ -35,7 +35,7 @@ jobs:
         host: 65.108.20.32
         username: root
         password: ${{ secrets.SERVER_PASSWORD }}
-        run: |
+        script: |
           cd client
           npm run build
           cp -r /root/NaijaTrading-dev/client/build/* /var/www/html/react/
