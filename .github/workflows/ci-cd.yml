@@ -38,6 +38,7 @@ jobs:
         host: 65.108.20.32
         username: root
         password: ${{ secrets.SERVER_PASSWORD }}
+        prot: 22
         script: |
           cd NaijaTrading-dev
           git pull
