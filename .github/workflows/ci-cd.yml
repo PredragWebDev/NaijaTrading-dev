@@ -40,7 +40,7 @@ jobs:
       with:
         host: 65.108.20.32
         username: root
-        password: ${{ secrets.SERVER_PASSWORD }}
+        password: ${{ secrets.SSHKEY }}
         prot: 22
         script: |
           cd NaijaTrading-dev
