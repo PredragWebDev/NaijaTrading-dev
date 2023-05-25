@@ -38,8 +38,8 @@ jobs:
         script: |
           sudo apt-get update
           curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-          cd client
-          npm run build
+          cd /root/NaijaTrading-dev/client
+          sudo npm run build
           cp -r /root/NaijaTrading-dev/client/build/* /var/www/html/react/
           pm2 delete all
           pm2 start server/ecosystem.config.js
