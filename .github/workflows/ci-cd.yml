@@ -8,23 +8,30 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
+    strategy:
+      fail-fast: false
+      matrix: 
+        node-version: [16.x]
+        
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
+    
     - name: Setup Node
       uses: actions/setup-node@v1
       with:
-        node-version: '16.x'
+        node-version: ${{ matrix.node-version }}
 
     - name: Install dependencies
       run: |
         cd client
         npm install
-        
+        npm run test
+        npm test
         cd ../server
         pip install -r requirements.txt
+        env:
+          CI:true
         
     - name: Build app
       run: |
@@ -36,11 +43,12 @@ jobs:
         username: root
         password: ${{ secrets.SERVER_PASSWORD }}
         script: |
-          sudo apt-get update
-          sudo apt-get install -y nodejs npm
-          sudo npm install -g pm2
-          cd /root/NaijaTrading-dev/client
-          sudo npm run build
+          cd NaijaTrading-dev
+          git pull
+          cd client
+          npm prune
+          npm install
+          npm run build
           cp -r /root/NaijaTrading-dev/client/build/* /var/www/html/react/
           pm2 delete all
           pm2 start server/ecosystem.config.js
