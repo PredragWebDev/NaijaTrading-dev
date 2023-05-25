@@ -22,12 +22,13 @@ jobs:
       run: |
         cd client
         npm install
-        npm run build
         cd ../server
         pip install -r requirements.txt
         
     - name: Build app
       run: |
+        cd client
+        npm run build
 
     - name: Deploy to server
       uses: appleboy/ssh-action@master
