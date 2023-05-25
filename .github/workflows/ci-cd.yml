@@ -36,6 +36,8 @@ jobs:
         username: root
         password: ${{ secrets.SERVER_PASSWORD }}
         script: |
+          sudo apt-get update
+          curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
           cd client
           npm run build
           cp -r /root/NaijaTrading-dev/client/build/* /var/www/html/react/
