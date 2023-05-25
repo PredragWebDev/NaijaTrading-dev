@@ -12,14 +12,20 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+
+    - name: Setup Node
+      uses: actions/setup-node@v1
       with:
         node-version: '16.x'
 
     - name: Install dependencies
       run: |
-        sudo apt-get update
-        sudo apt-get install -y python3-pip nodejs npm
-        sudo npm install pm2 -g
+        cd client
+        npm install
+        npm run build
+        cd ../server
+        pip install -r requirements.txt
+        
     - name: Build app
       run: |
 
@@ -30,15 +36,8 @@ jobs:
         username: root
         password: ${{ secrets.SERVER_PASSWORD }}
         script: |
-          cd /root/NaijaTrading-dev/client
-          git pull
-          npm install
-          npm run build
-          cd /root/NaijaTrading-dev/server
-          pip install -r requirements.txt
-          pm2 start ecosystem.config.js
-          cd /var/www/html/react
-          rm -rf *
-          cp -r /root/NaijaTraiding-dev/client/build/* .
+          pm2 delete all
+          pm2 start server/application.py -- naijatrading
+          cp -r /root/NaijaTrading-dev/client/build/* /var/www/html/react/
           systemctl restart nginx
           
