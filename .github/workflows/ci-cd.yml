@@ -28,8 +28,6 @@ jobs:
         npm install
         cd ../server
         pip install -r requirements.txt
-        env:
-          CI:true
         
     - name: Build app
       run: |
