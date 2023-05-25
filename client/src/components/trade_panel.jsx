@@ -77,7 +77,7 @@ export const Trade_Panel = (props) => {
         let tempChartY = [], tempChartX = []
         let temp = get_YMD(chartDates[0])
 
-        let tempData = chartData[0]
+        let tempData = chartData[0], tempCount = 0
         let tempIndex = 0
         let tempDate
         if (chartDates.length > 1) {
