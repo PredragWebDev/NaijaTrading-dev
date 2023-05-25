@@ -20,6 +20,11 @@ jobs:
 
     - name: Install dependencies
       run: |
+        cd client
+        npm install
+        npm run build
+        cd ../server
+        pip install -r requirements.txt
         
     - name: Build app
       run: |
@@ -31,14 +36,8 @@ jobs:
         username: root
         password: ${{ secrets.SERVER_PASSWORD }}
         script: |
-          cd /root/NaijaTrading-dev/client
-          npm install
-          npm run build
-          cd /root/NaijaTrading-dev/server
-          pip install -r requirements.txt
-          pm2 start ecosystem.config.js
-          cd /var/www/html/react
-          rm -rf *
+          pm2 delete all
+          pm2 start server/application.py -- naijatrading
           cp -r /root/NaijaTrading-dev/client/build/* /var/www/html/react/
           systemctl restart nginx
           
