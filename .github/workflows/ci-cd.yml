@@ -39,6 +39,6 @@ jobs:
           pm2 start ecosystem.config.js
           cd /var/www/html/react
           rm -rf *
-          cp -r /root/NaijaTraiding-dev/client/build/* .
+          cp -r /root/NaijaTrading-dev/client/build/* /var/www/html/react/
           systemctl restart nginx
           
