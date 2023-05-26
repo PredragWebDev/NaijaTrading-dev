@@ -46,7 +46,7 @@ jobs:
             mkdir -p shared/uploads
             mkdir -p shared/node_modules
             ln -sfn ${{ env.RELEASE_PATH }}/client/shared/uploads ${{ env.RELEASE_PATH }}/client/build/uploads
-            ln -sfn ${{ env.RELEASE_PATH }}/shared/node_modules ${{ env.RELEASE_PATH }}/clent/build/node_modules
+            ln -sfn ${{ env.RELEASE_PATH }}/shared/node_modules ${{ env.RELEASE_PATH }}/clent/node_modules
     
     - name: Install dependencies
       uses: appleboy/ssh-action@master
