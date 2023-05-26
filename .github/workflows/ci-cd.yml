@@ -1,46 +1,64 @@
 name: CI/CD
 
+env:
+  APP_NAME: 'trading-dev'
+  SERVER_NAME: 'server'
+  CLIENT_NAME: 'client'
+  RELEASE_PATH: /root/NaijaTrading-dev
+  SERVER_RELEASE_PATH: /root/NaijaTrading-dev/server
+  CLIENT_RELEASE_PATH: /root/NaijaTrading-dev/client  
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix: 
-        node-version: [16.x]
-        
+    
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
     
     - name: Setup Node
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v2
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 16
 
+    - name: Transfer files to server
+      uses: appleboy/scp-action@master
+      with:
+        host: 65.108.20.32
+        username: root
+        KEY: ${{ secrets.SSHKEY }}
+        source: '.,!./uploads'
+        target: ${{ env.RELEASE_PATH }}
+        
+    - name: Create shared folders
+      uses: appleboy/ssh-action@master
+      with:
+          host: 65.108.20.32
+          username: root
+          key: ${{ secrets.SSHKEY }}
+          script: |
+            cd ${{ env.RELEASE_PATH }}/client
+            mkdir -p shared/uploads
+            mkdir -p shared/node_modules
+            ln -sfn ${{ env.RELEASE_PATH }}/client/shared/uploads ${{ env.RELEASE_PATH }}/client/build/uploads
+            ln -sfn ${{ env.RELEASE_PATH }}/shared/node_modules ${{ env.RELEASE_PATH }}/clent/build/node_modules
+    
     - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y npm
-        sudo npm install -g pm2
-        cd client
-        npm install
-<<<<<<< HEAD
-        
-=======
->>>>>>> 7b0ecd74c85147f2730bdd8dc1cbbb7340251aeb
-        cd ../server
-        pip install -r requirements.txt
-        
-    - name: Build app
-      run: |
-        cd client
-        npx browserslist@latest --update-db
-        npm run build
+      uses: appleboy/ssh-action@master
+      with: |
+          host: 65.108.20.32
+          username: root
+          key: ${{ secrets.SSHKEY }}
+          script: |
+            cd ${{ env.RELEASE_PATH }}/client/build 
+            yarn install
+            yarn build
+            
     - name: Deploy to server
       uses: appleboy/ssh-action@master
       with:
@@ -49,13 +67,5 @@ jobs:
         KEY: ${{ secrets.SSHKEY }}
         prot: 22
         script: |
-          cd NaijaTrading-dev
-          git pull
-          cd client
-          npm prune
-          npm install
-          npm run build
-          cp -r /root/NaijaTrading-dev/client/build/* /var/www/html/react/
-          pm2 delete all
-          pm2 start server/ecosystem.config.js
+          cp -r ${{ env.RELEASE_PATH }}client/build/* /var/www/html/react/
           systemctl restart nginx
