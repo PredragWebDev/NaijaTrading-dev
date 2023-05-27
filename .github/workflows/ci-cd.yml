@@ -46,6 +46,7 @@ jobs:
             sudo apt-get install nodejs npm
             cd ${{ env.RELEASE_PATH }}/client 
             npm install
+            chmod a+rwx node_modules/.bin/react-scripts
             npm run build
             
     - name: Deploy to server
