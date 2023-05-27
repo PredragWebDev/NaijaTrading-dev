@@ -47,7 +47,8 @@ jobs:
             cd ${{ env.RELEASE_PATH }}/client 
             sudo npm install
             sudo npm audit fix force
-            chmod a+rwx node_modules/.bin/react-scripts
+            ls -l node_modules/.bin/react-scripts
+            chmod +x node_modules/.bin/react-scripts
             sudo npm run build
             
     - name: Deploy to server
