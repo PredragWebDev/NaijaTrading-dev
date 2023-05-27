@@ -46,6 +46,7 @@ jobs:
             sudo apt-get install nodejs npm
             cd ${{ env.RELEASE_PATH }}/client 
             npm install
+            npm run build
             
     - name: Deploy to server
       uses: appleboy/ssh-action@master
@@ -55,5 +56,5 @@ jobs:
         KEY: ${{ secrets.SSHKEY }}
         prot: 22
         script: |
-          cp -r ${{ env.RELEASE_PATH }}client/build/* /var/www/html/react/
+          cp -r ${{ env.RELEASE_PATH }}/client/build/* /var/www/html/react/
           systemctl restart nginx
