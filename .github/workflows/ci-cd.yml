@@ -46,10 +46,7 @@ jobs:
             sudo apt-get install nodejs npm
             cd ${{ env.RELEASE_PATH }}/client 
             sudo npm install
-            sudo npm audit fix force
-            ls -l node_modules/.bin/react-scripts
-            chmod +x node_modules/.bin/react-scripts
-            sudo npm run build
+            yarn build
             
     - name: Deploy to server
       uses: appleboy/ssh-action@master
