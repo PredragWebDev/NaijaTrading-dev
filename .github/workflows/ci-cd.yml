@@ -48,7 +48,6 @@ jobs:
             sudo apt-get install -y nodejs
             cd ${{ env.RELEASE_PATH }}/client 
             npm install
-            npm run build
             
     - name: Deploy to server
       uses: appleboy/ssh-action@master
