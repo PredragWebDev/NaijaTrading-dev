@@ -47,7 +47,7 @@ jobs:
             cd ${{ env.RELEASE_PATH }}/client 
             npm install
             chmod a+rwx node_modules/.bin/react-scripts
-            npm run build
+            sudo npm run build
             
     - name: Deploy to server
       uses: appleboy/ssh-action@master
