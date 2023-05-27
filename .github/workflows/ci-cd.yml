@@ -42,6 +42,10 @@ jobs:
           username: root
           key: ${{ secrets.SSHKEY }}
           script: |
+            sudo apt-get update
+            sudo apt-get install -y curl
+            curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+            sudo apt-get install -y nodejs
             cd ${{ env.RELEASE_PATH }}/client 
             npm install
             npm run build
