@@ -52,7 +52,8 @@ export const Login = () => {
                 <div>
                     <div className="logo">
                         <img src="img/logo.png" alt="" className="nav-logo"/>
-                        <h1>Trade-Ed</h1>
+//                         <h1>Trade-Ed</h1>
+                            <h1>Trading place</h1>
                     </div>
                     <div className="title">
                         <p>Log In</p>
