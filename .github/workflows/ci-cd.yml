@@ -47,6 +47,10 @@ jobs:
             cd ${{ env.RELEASE_PATH }}/client 
             sudo npm install
             yarn build
+            cd ${{ env.RELEASE_PATH }}/server
+            npm install pm2 -g
+            pm2 delete all
+            pm2 start ecosystem.config.js
             
     - name: Deploy to server
       uses: appleboy/ssh-action@master
@@ -58,6 +62,5 @@ jobs:
         script: |
           cp -r ${{ env.RELEASE_PATH }}/client/build/* /var/www/html/react/
           systemctl restart nginx
-          cd ${{ env.RELEASE_PATH }}/server
-          pm2 delete all
-          pm2 start ecosystem.config.js
+          
+          
