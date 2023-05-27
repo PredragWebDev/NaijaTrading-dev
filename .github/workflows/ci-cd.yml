@@ -37,7 +37,7 @@ jobs:
 
     - name: Install dependencies
       uses: appleboy/ssh-action@master
-      with: |
+      with:
           host: 65.108.20.32
           username: root
           key: ${{ secrets.SSHKEY }}
