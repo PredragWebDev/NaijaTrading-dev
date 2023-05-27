@@ -265,7 +265,8 @@
     }
 }
 
-.css-d9c359-MuiButtonBase-root-MuiToggleButton-root.Mui-selected {
+/* .css-d9c359-MuiButtonBase-root-MuiToggleButton-root.Mui-selected { */
+.css-1cmnqml.Mui-selected {
     color: black!important;
     background-color: white!important;
     font-weight: bold;
