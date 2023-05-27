@@ -43,8 +43,8 @@ jobs:
           key: ${{ secrets.SSHKEY }}
           script: |
             cd ${{ env.RELEASE_PATH }}/client 
-            yarn install
-            yarn build
+            npm install
+            npm run build
             
     - name: Deploy to server
       uses: appleboy/ssh-action@master
