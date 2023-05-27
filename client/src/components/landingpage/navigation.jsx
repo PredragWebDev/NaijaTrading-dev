@@ -24,8 +24,8 @@ export const Navigation = (props) => {
         </Grid>
 
         <Grid container item xs={5} md={4} justifyContent="flex-end" alignItems="center">
-            <a onClick={signUp} id="get_started_btn" className="getstared-btn hiden_button">GET STARTED</a>
-            <a onClick={login} id="login_btn" className="login-btn">LOG IN</a>
+            <a href="#" onClick={signUp} id="get_started_btn" className="getstared-btn hiden_button">GET STARTED</a>
+            <a href="#" onClick={login} id="login_btn" className="login-btn">LOG IN</a>
         </Grid>
         
       </Grid>
