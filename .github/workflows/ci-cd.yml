@@ -34,20 +34,7 @@ jobs:
         KEY: ${{ secrets.SSHKEY }}
         source: '.,!./uploads'
         target: ${{ env.RELEASE_PATH }}
-        
-    - name: Create shared folders
-      uses: appleboy/ssh-action@master
-      with:
-          host: 65.108.20.32
-          username: root
-          key: ${{ secrets.SSHKEY }}
-          script: |
-            cd ${{ env.RELEASE_PATH }}/client
-            mkdir -p shared/uploads
-            mkdir -p shared/node_modules
-            ln -sfn ${{ env.RELEASE_PATH }}/client/shared/uploads ${{ env.RELEASE_PATH }}/client/build/uploads
-            ln -sfn ${{ env.RELEASE_PATH }}/shared/node_modules ${{ env.RELEASE_PATH }}/clent/node_modules
-    
+
     - name: Install dependencies
       uses: appleboy/ssh-action@master
       with: |
@@ -55,7 +42,7 @@ jobs:
           username: root
           key: ${{ secrets.SSHKEY }}
           script: |
-            cd ${{ env.RELEASE_PATH }}/client/build 
+            cd ${{ env.RELEASE_PATH }}/client 
             yarn install
             yarn build
             
